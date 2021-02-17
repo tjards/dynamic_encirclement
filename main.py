@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-This project implements 3D flocking and bimodal dynamic enspherement
-on a double-integrator model. Adapted from the approach in:
+This project implements an autonomous, decentralized dynamic encirclement strategy for swarms of vehicles. 
+The strategy requires no human invervention once the target is selected and all vehicles rely on local knowledge only. 
+Each vehicle makes its own decisions about where to go based on its relative position to other vehicles, 
+but the protocol results in a globally stable, evenly-spaced swarm. 
+
+Adapted from the approach in:
     
     Ahmed T. Hafez; Anthony J. Marasco; Sidney N. Givigi; Mohamad Iskandarani; Shahram Yousefi; 
     and Camille Alain Rabbath, "Solving Multi-UAV Dynamic Encirclement via Model Predictive Control", 
