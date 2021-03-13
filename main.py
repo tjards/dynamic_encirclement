@@ -37,7 +37,7 @@ import random
 #%% Setup Simulation
 # ------------------
 Ti = 0         # initial time
-Tf = 40         # final time 
+Tf = 60         # final time 
 Ts = 0.02      # sample time
 nVeh = 15       # number of vehicles
 iSpread = 40   # initial spread of vehicles
@@ -199,11 +199,11 @@ while round(t,3) < Tf:
     swarm_prox = tactic.sigma_norm(centroid.ravel()-targets[0:3,0])
     if tactic_type == 2:    
         # define the orientation of the plan (quaterions)
-        if t < 20:
+        if t < 30:
             quat_0 = quat.e2q(np.array([np.pi/2,0,0]))
-        if t >= 30:
+        if t >= 45:
             quat_0 = quat.e2q(np.array([0,0,0]))
-        if t >= 40:
+        if t >= 55:
             quat_0 = quat.e2q(np.array([0,-np.pi/3,0]))
                
         targets_encircle = encircle_tools.encircle_target(targets, state, r_desired, ref_plane, quat_0)
