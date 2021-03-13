@@ -37,10 +37,10 @@ import random
 #%% Setup Simulation
 # ------------------
 Ti = 0         # initial time
-Tf = 30         # final time 
+Tf = 40         # final time 
 Ts = 0.02      # sample time
-nVeh = 13       # number of vehicles
-iSpread = 10   # initial spread of vehicles
+nVeh = 15       # number of vehicles
+iSpread = 40   # initial spread of vehicles
 
 tactic_type = 2     # [2 = circle]
 
@@ -96,7 +96,7 @@ oSpread = iSpread*2
 obstacles[0,0] = targets[0,0]     # position (x)
 obstacles[1,0] = targets[1,0]     # position (y)
 obstacles[2,0] = targets[2,0]     # position (z)
-obstacles[3,0] = 5                # radii of obstacle(s)
+obstacles[3,0] = 1                # radii of obstacle(s)
 
 # Walls/Floors 
 # - these are defined manually as planes
@@ -200,9 +200,11 @@ while round(t,3) < Tf:
     if tactic_type == 2:    
         # define the orientation of the plan (quaterions)
         if t < 20:
-            quat_0 = quat.e2q(np.array([np.pi/5,0,0]))
-        if t >= 20:
+            quat_0 = quat.e2q(np.array([np.pi/2,0,0]))
+        if t >= 30:
             quat_0 = quat.e2q(np.array([0,0,0]))
+        if t >= 40:
+            quat_0 = quat.e2q(np.array([0,-np.pi/3,0]))
                
         targets_encircle = encircle_tools.encircle_target(targets, state, r_desired, ref_plane, quat_0)
         
